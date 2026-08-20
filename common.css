@@ -1,0 +1,243 @@
+/* =========================
+   COMMON DESIGN VARIABLES
+   ========================= */
+
+:root {
+  --bg-color: #171717;
+  --card-color: #222222;
+  --card-hover: #292929;
+
+  --primary-color: #7dd3c7;
+  --secondary-color: #f4a261;
+
+  --text-color: #f5f5f5;
+  --muted-text: #a5a5a5;
+
+  --border-color: #333333;
+
+  --small-text: 14px;
+  --normal-text: 16px;
+  --heading: 28px;
+  --large-heading: 42px;
+
+  --small-radius: 8px;
+  --card-radius: 14px;
+
+  --small-gap: 10px;
+  --normal-gap: 20px;
+  --large-gap: 40px;
+}
+
+/* =========================
+   BASIC RESET
+   ========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+  height: 70px;
+  padding: 0 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: var(--primary-color);
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: var(--muted-text);
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* =========================
+   COMMON CONTAINER
+   ========================= */
+
+.container {
+  width: 88%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section {
+  margin-top: var(--large-gap);
+}
+
+.section-title {
+  font-size: var(--heading);
+  margin-bottom: var(--normal-gap);
+}
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.btn {
+  display: inline-block;
+
+  padding: 12px 22px;
+
+  border: none;
+  border-radius: 25px;
+
+  background-color: var(--primary-color);
+  color: #171717;
+
+  font-weight: bold;
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background-color: var(--secondary-color);
+}
+
+/* =========================
+   MUSIC CARD
+   ========================= */
+
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--normal-gap);
+}
+
+.music-card {
+  background-color: var(--card-color);
+  padding: 15px;
+  border-radius: var(--card-radius);
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.music-card:hover {
+  transform: translateY(-6px);
+  background-color: var(--card-hover);
+}
+
+.music-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--small-radius);
+}
+
+.music-card h3 {
+  margin-top: 12px;
+  font-size: 17px;
+}
+
+.music-card p {
+  margin-top: 6px;
+  color: var(--muted-text);
+  font-size: var(--small-text);
+}
+
+/* =========================
+   ANIMATION
+   ========================= */
+
+.fade-in {
+  animation: fadeIn 0.7s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+  .music-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .large-heading {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    height: auto;
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .container {
+    width: 92%;
+  }
+
+  .music-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    margin-top: 30px;
+  }
+}
