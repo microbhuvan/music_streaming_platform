@@ -1,0 +1,308 @@
+/* SEARCH HEADER */
+
+.search-header {
+  margin-top: 50px;
+}
+
+.page-label {
+  color: var(--primary-color);
+  font-size: var(--small-text);
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.search-header h1 {
+  font-size: 38px;
+  margin-bottom: 25px;
+}
+
+/* SEARCH BAR */
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 6px 8px 6px 18px;
+
+  background-color: var(--surface-color);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 30px;
+}
+
+.search-bar span {
+  font-size: 25px;
+  color: var(--muted-text);
+}
+
+.search-bar input {
+  flex: 1;
+
+  background: transparent;
+
+  border: none;
+  outline: none;
+
+  color: var(--text-color);
+
+  font-size: 15px;
+}
+
+.search-bar button {
+  padding: 11px 20px;
+
+  border: none;
+  border-radius: 22px;
+
+  background-color: var(--primary-color);
+
+  color: var(--bg-color);
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+/* RECENT SEARCHES */
+
+.recent-searches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.recent-searches span {
+  padding: 10px 16px;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 20px;
+
+  color: var(--muted-text);
+
+  transition: 0.3s ease;
+}
+
+.recent-searches span:hover {
+  color: var(--text-color);
+
+  background-color: var(--surface-hover);
+
+  transform: translateY(-2px);
+}
+
+/* SONGS */
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.song {
+  display: grid;
+
+  grid-template-columns: 55px 1fr 50px 35px;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 10px 15px;
+
+  border-radius: var(--radius-small);
+
+  transition: background-color 0.3s ease;
+}
+
+.song:hover {
+  background-color: var(--surface-color);
+}
+
+.song img {
+  width: 50px;
+  height: 50px;
+
+  object-fit: cover;
+
+  border-radius: var(--radius-small);
+}
+
+.song h3 {
+  font-size: 15px;
+}
+
+.song p,
+.song > span {
+  color: var(--muted-text);
+  font-size: var(--small-text);
+}
+
+.song button {
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: var(--surface-hover);
+
+  color: var(--text-color);
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.song button:hover {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
+/* ARTISTS */
+
+.artist-results {
+  display: grid;
+
+  grid-template-columns: repeat(3, 150px);
+
+  gap: 35px;
+}
+
+.artist-result {
+  text-align: center;
+}
+
+.artist-result img {
+  width: 130px;
+  height: 130px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  transition: 0.3s ease;
+}
+
+.artist-result:hover img {
+  transform: scale(1.06);
+
+  border: 3px solid var(--primary-color);
+}
+
+.artist-result h3 {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.artist-result p {
+  color: var(--muted-text);
+  font-size: var(--small-text);
+  margin-top: 4px;
+}
+
+/* ALBUMS */
+
+.album-results {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.album-results article {
+  padding: 12px;
+
+  background-color: var(--surface-color);
+
+  border-radius: var(--radius-medium);
+
+  transition: 0.3s ease;
+}
+
+.album-results article:hover {
+  transform: translateY(-5px);
+
+  background-color: var(--surface-hover);
+}
+
+.album-results img {
+  width: 100%;
+
+  aspect-ratio: 1;
+
+  object-fit: cover;
+
+  border-radius: var(--radius-small);
+}
+
+.album-results h3 {
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+.album-results p {
+  color: var(--muted-text);
+  font-size: var(--small-text);
+  margin-top: 5px;
+}
+
+/* TABLET */
+
+@media (max-width: 700px) {
+  .search-header h1 {
+    font-size: 32px;
+  }
+
+  .artist-results {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  .artist-result img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+  .search-bar {
+    padding-left: 12px;
+  }
+
+  .search-bar button {
+    padding: 10px 14px;
+  }
+
+  .song {
+    grid-template-columns: 50px 1fr 32px;
+  }
+
+  .song > span {
+    display: none;
+  }
+
+  .artist-results {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .artist-result img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .artist-result h3 {
+    font-size: 13px;
+  }
+
+  .album-results {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}

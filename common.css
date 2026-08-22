@@ -1,36 +1,46 @@
-/* =========================
-   COMMON DESIGN VARIABLES
-   ========================= */
+/* ================================
+   MELODY - COMMON CSS
+================================ */
 
 :root {
-  --bg-color: #171717;
-  --card-color: #222222;
-  --card-hover: #292929;
+  /* Colors */
+  --bg-color: #101112;
+  --surface-color: #191b1d;
+  --surface-hover: #242729;
 
-  --primary-color: #7dd3c7;
-  --secondary-color: #f4a261;
+  --primary-color: #8ee3d2;
+  --secondary-color: #ff9f68;
 
-  --text-color: #f5f5f5;
-  --muted-text: #a5a5a5;
+  --text-color: #f7f7f5;
+  --muted-text: #969b9c;
 
-  --border-color: #333333;
+  --border-color: #292d2f;
 
-  --small-text: 14px;
+  /* Sizes */
+  --small-text: 13px;
   --normal-text: 16px;
-  --heading: 28px;
-  --large-heading: 42px;
+  --large-text: 20px;
 
-  --small-radius: 8px;
-  --card-radius: 14px;
+  --heading-medium: 28px;
+  --heading-large: 44px;
 
-  --small-gap: 10px;
-  --normal-gap: 20px;
-  --large-gap: 40px;
+  /* Spacing */
+  --space-small: 10px;
+  --space-medium: 20px;
+  --space-large: 40px;
+
+  /* Radius */
+  --radius-small: 8px;
+  --radius-medium: 16px;
+  --radius-large: 24px;
+
+  /* Width */
+  --max-width: 1200px;
 }
 
-/* =========================
-   BASIC RESET
-   ========================= */
+/* ================================
+   RESET
+================================ */
 
 * {
   margin: 0;
@@ -41,21 +51,41 @@
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
+
   font-family: Arial, sans-serif;
+
+  min-height: 100vh;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
-/* =========================
+button,
+input {
+  font-family: inherit;
+}
+
+/* ================================
+   CONTAINER
+================================ */
+
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+
+  margin: 0 auto;
+}
+
+/* ================================
    NAVBAR
-   ========================= */
+================================ */
 
 .navbar {
-  height: 70px;
-  padding: 0 6%;
+  min-height: 72px;
+
+  padding: 0 5%;
 
   display: flex;
   align-items: center;
@@ -65,7 +95,7 @@ a {
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 25px;
   font-weight: bold;
 }
 
@@ -75,11 +105,16 @@ a {
 
 .nav-links {
   display: flex;
-  gap: 25px;
+  align-items: center;
+
+  gap: 28px;
 }
 
 .nav-links a {
   color: var(--muted-text);
+
+  font-size: var(--normal-text);
+
   transition: color 0.3s ease;
 }
 
@@ -87,28 +122,13 @@ a {
   color: var(--primary-color);
 }
 
-/* =========================
-   COMMON CONTAINER
-   ========================= */
-
-.container {
-  width: 88%;
-  max-width: 1200px;
-  margin: auto;
+.nav-links .active {
+  color: var(--text-color);
 }
 
-.section {
-  margin-top: var(--large-gap);
-}
-
-.section-title {
-  font-size: var(--heading);
-  margin-bottom: var(--normal-gap);
-}
-
-/* =========================
+/* ================================
    BUTTON
-   ========================= */
+================================ */
 
 .btn {
   display: inline-block;
@@ -119,9 +139,11 @@ a {
   border-radius: 25px;
 
   background-color: var(--primary-color);
-  color: #171717;
+  color: var(--bg-color);
 
+  font-size: var(--normal-text);
   font-weight: bold;
+
   cursor: pointer;
 
   transition:
@@ -131,55 +153,39 @@ a {
 
 .btn:hover {
   transform: translateY(-3px);
+
   background-color: var(--secondary-color);
 }
 
-/* =========================
-   MUSIC CARD
-   ========================= */
+/* ================================
+   SECTION
+================================ */
 
-.music-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--normal-gap);
+.section {
+  margin-top: 50px;
 }
 
-.music-card {
-  background-color: var(--card-color);
-  padding: 15px;
-  border-radius: var(--card-radius);
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  transition:
-    transform 0.3s ease,
-    background-color 0.3s ease;
+  margin-bottom: 20px;
 }
 
-.music-card:hover {
-  transform: translateY(-6px);
-  background-color: var(--card-hover);
+.section-heading h2 {
+  font-size: var(--heading-medium);
 }
 
-.music-card img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: var(--small-radius);
-}
+.section-heading a {
+  color: var(--primary-color);
 
-.music-card h3 {
-  margin-top: 12px;
-  font-size: 17px;
-}
-
-.music-card p {
-  margin-top: 6px;
-  color: var(--muted-text);
   font-size: var(--small-text);
 }
 
-/* =========================
-   ANIMATION
-   ========================= */
+/* ================================
+   FADE ANIMATION
+================================ */
 
 .fade-in {
   animation: fadeIn 0.7s ease;
@@ -188,7 +194,7 @@ a {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
 
   to {
@@ -197,47 +203,31 @@ a {
   }
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+/* ================================
+   MOBILE NAVBAR
+================================ */
 
-@media (max-width: 900px) {
-  .music-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .nav-links {
-    gap: 12px;
-  }
-
-  .large-heading {
-    font-size: 34px;
-  }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .navbar {
-    height: auto;
-    padding: 20px;
+    padding: 18px 5%;
+
     flex-direction: column;
+
     gap: 15px;
   }
 
   .nav-links {
-    width: 100%;
-    justify-content: center;
+    gap: 15px;
+
     flex-wrap: wrap;
-  }
 
-  .container {
-    width: 92%;
+    justify-content: center;
   }
+}
 
-  .music-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .section {
-    margin-top: 30px;
-  }
+.navbar-frame {
+  width: 100%;
+  height: 75px;
+  border: none;
+  display: block;
 }
