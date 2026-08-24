@@ -15,25 +15,31 @@
     <!-- NAVBAR -->
 
     <nav class="navbar">
-      <a href="../home/index.html" class="logo"> ♪ <span>Melody</span> </a>
+      <a href="../home/index.html" class="logo">
+        ♪ <span>Melody</span>
+      </a>
 
       <div class="nav-links">
-        <a href="../home/index.html"> Home </a>
+        <a href="../home/index.html">Home</a>
 
-        <a href="../search/search.html"> Search </a>
+        <a href="../search/search.html">Search</a>
 
-        <a href="../playlists/playlists.html"> Playlists </a>
+        <a href="../playlists/playlists.html">Playlists</a>
 
-        <a href="../artists/artists.html"> Artists </a>
+        <a href="../artists/artists.html">Artists</a>
 
-        <a href="player.html" class="active"> Player </a>
+        <a href="player.html" class="active">Player</a>
       </div>
     </nav>
 
     <main class="container fade-in">
+
       <!-- PLAYER -->
 
       <section class="player-section">
+
+        <!-- ALBUM ART -->
+
         <div class="album-art">
           <img
             src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=800&q=80"
@@ -41,62 +47,109 @@
           />
         </div>
 
+        <!-- PLAYER INFORMATION -->
+
         <div class="player-info">
+
           <p class="playing-label">NOW PLAYING</p>
 
           <h1>Midnight Dreams</h1>
 
           <p class="artist-name">Nova Lane</p>
 
+          <!-- LIKE BUTTON -->
+
+          <button class="like-button">♡ Like</button>
+
           <!-- PROGRESS -->
 
           <div class="progress-area">
+
             <div class="progress-bar">
               <div class="progress"></div>
             </div>
 
             <div class="time">
               <span>1:42</span>
-
               <span>3:42</span>
             </div>
+
           </div>
 
           <!-- CONTROLS -->
 
           <div class="controls">
-            <button>↶</button>
 
-            <button>⏮</button>
+            <button aria-label="Shuffle">↶</button>
 
-            <button class="play-button">▶</button>
+            <button aria-label="Previous song">⏮</button>
 
-            <button>⏭</button>
+            <button class="play-button"
+              aria-label="Pause song">
+                ⏸
+            </button>
 
-            <button>↷</button>
+            <button aria-label="Next song">⏭</button>
+
+            <button aria-label="Repeat">↷</button>
+
+          </div>
+
+          <!-- MUSIC VISUALIZER -->
+
+          <div class="visualizer">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
           </div>
 
           <!-- VOLUME -->
 
           <div class="volume">
+
             <span>🔊</span>
 
-            <input type="range" min="0" max="100" value="70" />
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value="70"
+              aria-label="Volume"
+            />
+
           </div>
+
         </div>
+
       </section>
+
 
       <!-- UP NEXT -->
 
       <section class="section">
+
         <div class="section-heading">
+
           <h2>Up Next</h2>
 
-          <a href="#"> Queue </a>
+          <a href="#">Queue</a>
+
         </div>
 
+
         <div class="queue">
+
+          <!-- SONG 1 -->
+
           <div class="queue-song">
+
             <span>01</span>
 
             <img
@@ -105,15 +158,22 @@
             />
 
             <div>
+
               <h3>Electric Soul</h3>
 
               <p>Aria Stone</p>
+
             </div>
 
-            <span> 4:05 </span>
+            <span>4:05</span>
+
           </div>
 
+
+          <!-- SONG 2 -->
+
           <div class="queue-song">
+
             <span>02</span>
 
             <img
@@ -122,15 +182,22 @@
             />
 
             <div>
+
               <h3>Golden Hour</h3>
 
               <p>Leo Miles</p>
+
             </div>
 
-            <span> 3:28 </span>
+            <span>3:28</span>
+
           </div>
 
+
+          <!-- SONG 3 -->
+
           <div class="queue-song">
+
             <span>03</span>
 
             <img
@@ -139,15 +206,22 @@
             />
 
             <div>
+
               <h3>After Dark</h3>
 
               <p>The Echoes</p>
+
             </div>
 
-            <span> 3:51 </span>
+            <span>3:51</span>
+
           </div>
 
+
+          <!-- SONG 4 -->
+
           <div class="queue-song">
+
             <span>04</span>
 
             <img
@@ -156,27 +230,83 @@
             />
 
             <div>
+
               <h3>City Lights</h3>
 
               <p>Luna Ray</p>
+
             </div>
 
-            <span> 4:12 </span>
+            <span>4:12</span>
+
           </div>
+
         </div>
+
       </section>
+
+
+      <!-- LYRICS -->
+
+      <section class="section lyrics-section">
+
+        <div class="section-heading">
+
+          <h2>Lyrics</h2>
+
+          <span>Midnight Dreams</span>
+
+        </div>
+
+
+        <div class="lyrics">
+
+          <p class="lyrics-active">
+            Walking through the midnight lights
+          </p>
+
+          <p>
+            Dreaming underneath the stars
+          </p>
+
+          <p>
+            Every moment feels so right
+          </p>
+
+          <p>
+            Music takes us somewhere far
+          </p>
+
+          <p>
+            Close your eyes and feel the sound
+          </p>
+
+          <p>
+            Let the rhythm guide your way
+          </p>
+
+        </div>
+
+      </section>
+
     </main>
+
 
     <!-- FOOTER -->
 
     <footer class="footer">
+
       <div class="container">
+
         <h3>♪ Melody</h3>
 
         <p>Music for every moment.</p>
 
-        <span> © 2026 Melody </span>
+        <span>© 2026 Melody</span>
+
       </div>
+
     </footer>
+
   </body>
 </html>
