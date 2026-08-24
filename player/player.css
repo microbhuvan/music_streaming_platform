@@ -6,17 +6,31 @@
   min-height: 500px;
 
   display: grid;
-
   grid-template-columns: 1fr 1fr;
 
   align-items: center;
-
   gap: 60px;
 
   margin-top: 50px;
+  padding:40px;
+
+  border: 1px solid var(--primary-color);
+  border-radius: var(--radius-large);
+
+  width: 100%;
+
+  box-shadow: 0 0 25px rgba(142, 227, 210, 0.18);
 }
 
-/* ALBUM ART */
+
+/* ================================
+   ALBUM ART
+================================ */
+.album-art {
+  display: flex;
+  justify-content: flex-start;
+  transform: translateX(-15px);
+}
 
 .album-art img {
   width: 100%;
@@ -29,11 +43,21 @@
   border-radius: var(--radius-large);
 
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+
+  transition: transform 0.3s ease;
 }
 
-/* SONG INFO */
+.album-art img:hover {
+  transform: scale(1.03);
+}
+
+
+/* ================================
+   SONG INFO
+================================ */
 
 .player-info {
+  width: 100%;
   max-width: 500px;
 }
 
@@ -59,7 +83,44 @@
   margin-top: 8px;
 }
 
-/* PROGRESS */
+
+/* ================================
+   LIKE BUTTON
+================================ */
+
+.like-button {
+  margin-top: 15px;
+
+  padding: 8px 16px;
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 20px;
+
+  background-color: transparent;
+
+  color: var(--muted-text);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.like-button:hover {
+  background-color: var(--surface-hover);
+
+  color: var(--primary-color);
+
+  border-color: var(--primary-color);
+}
+
+
+/* ================================
+   PROGRESS
+================================ */
 
 .progress-area {
   margin-top: 35px;
@@ -67,6 +128,7 @@
 
 .progress-bar {
   width: 100%;
+
   height: 5px;
 
   background-color: var(--border-color);
@@ -74,13 +136,18 @@
   border-radius: 10px;
 
   overflow: hidden;
+
+  cursor: pointer;
 }
 
 .progress {
   width: 45%;
+
   height: 100%;
 
   background-color: var(--primary-color);
+
+  border-radius: 10px;
 }
 
 .time {
@@ -95,12 +162,16 @@
   font-size: 12px;
 }
 
-/* CONTROLS */
+
+/* ================================
+   CONTROLS
+================================ */
 
 .controls {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 20px;
@@ -122,11 +193,18 @@
 
   cursor: pointer;
 
-  transition: transform 0.2s ease;
+  border-radius: 50%;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .controls button:hover {
   transform: scale(1.15);
+
+  background-color: var(--surface-hover);
 
   color: var(--primary-color);
 }
@@ -142,15 +220,90 @@
   color: var(--bg-color);
 
   font-size: 20px;
+
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
 .controls .play-button:hover {
   transform: scale(1.08);
 
+  background-color: var(--primary-color);
+
   color: var(--bg-color);
 }
 
-/* VOLUME */
+
+/* ================================
+   MUSIC VISUALIZER
+================================ */
+
+.visualizer {
+  height: 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 20px;
+}
+
+.visualizer span {
+  width: 4px;
+  height: 15px;
+
+  background-color: var(--primary-color);
+
+  border-radius: 5px;
+
+  animation: musicBars 0.8s infinite alternate;
+}
+
+.visualizer span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.visualizer span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.visualizer span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.visualizer span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.visualizer span:nth-child(6) {
+  animation-delay: 0.2s;
+}
+
+.visualizer span:nth-child(7) {
+  animation-delay: 0.1s;
+}
+
+.visualizer span:nth-child(8) {
+  animation-delay: 0.3s;
+}
+
+@keyframes musicBars {
+  from {
+    height: 8px;
+  }
+
+  to {
+    height: 30px;
+  }
+}
+
+
+/* ================================
+   VOLUME
+================================ */
 
 .volume {
   display: flex;
@@ -168,7 +321,10 @@
   width: 120px;
 
   accent-color: var(--primary-color);
+
+  cursor: pointer;
 }
+
 
 /* ================================
    QUEUE
@@ -195,11 +351,22 @@
 
   border-radius: var(--radius-small);
 
-  transition: background-color 0.3s ease;
+  border: 1px solid transparent;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+
+  cursor: pointer;
 }
 
 .queue-song:hover {
-  background-color: var(--surface-color);
+  background-color: var(--surface-hover);
+
+  transform: translateX(5px);
+
+  border-color: var(--border-color);
 }
 
 .queue-song > span {
@@ -215,6 +382,12 @@
   object-fit: cover;
 
   border-radius: var(--radius-small);
+
+  transition: transform 0.3s ease;
+}
+
+.queue-song:hover img {
+  transform: scale(1.05);
 }
 
 .queue-song h3 {
@@ -229,56 +402,233 @@
   margin-top: 4px;
 }
 
+
+/* ================================
+   LYRICS
+================================ */
+
+.lyrics-section {
+  margin-bottom: 50px;
+}
+
+.lyrics-section .section-heading span {
+  color: var(--muted-text);
+
+  font-size: var(--small-text);
+}
+
+.lyrics {
+  padding: 25px;
+
+  background-color: var(--surface-color);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: var(--radius-medium);
+
+  text-align: center;
+}
+
+.lyrics p {
+  margin: 12px 0;
+
+  color: var(--muted-text);
+
+  font-size: var(--normal-text);
+
+  line-height: 1.6;
+}
+
+.lyrics .lyrics-active {
+  color: var(--primary-color);
+
+  font-weight: bold;
+}
+
+
 /* ================================
    TABLET
 ================================ */
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
+
   .player-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
 
-    gap: 35px;
+    gap: 30px;
 
-    text-align: center;
+    padding: 30px;
   }
 
   .album-art img {
-    width: 60%;
-
-    margin: auto;
+    max-width: 350px;
   }
 
-  .player-info {
-    margin: auto;
+  .player-info h1 {
+    font-size: 36px;
+  }
+
+  .controls {
+    gap: 12px;
   }
 }
+
 
 /* ================================
    MOBILE
 ================================ */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+
   .player-section {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+
     margin-top: 30px;
+
+    padding: 25px 20px;
+
+    text-align: center;
+
+    width: 100%;
+  }
+
+  .album-art{
+    justify-content: center;
   }
 
   .album-art img {
-    width: 80%;
+    width: 75%;
+
+    max-width: 300px;
+  }
+
+  .player-info {
+    width: 100%;
+
+    margin: 0 auto;
   }
 
   .player-info h1 {
     font-size: 32px;
+
+    margin-top: 10px;
+  }
+
+  .artist-name {
+    margin-top: 8px;
+  }
+
+  .like-button {
+    margin-top: 15px;
+  }
+
+  .progress-area {
+    margin-top: 30px;
   }
 
   .controls {
     gap: 10px;
+
+    margin-top: 25px;
+  }
+
+  .controls .play-button {
+    width: 52px;
+    height: 52px;
+  }
+
+  .visualizer {
+    margin-top: 18px;
+  }
+
+  .volume {
+    margin-top: 20px;
   }
 
   .queue-song {
-    grid-template-columns: 25px 50px 1fr;
+    grid-template-columns: 25px 50px 1fr 45px;
+
+    gap: 10px;
+
+    padding: 10px;
+  }
+
+  .queue-song img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .lyrics {
+    padding: 20px 15px;
+  }
+
+  .lyrics p {
+    font-size: 14px;
+  }
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 450px) {
+
+  .player-section {
+    padding: 20px 15px;
+
+    gap: 25px;
+  }
+
+  .album-art img {
+    width: 85%;
+  }
+
+  .player-info h1 {
+    font-size: 28px;
+  }
+
+  .playing-label {
+    font-size: 12px;
+  }
+
+  .controls {
+    gap: 5px;
+  }
+
+  .controls button {
+    width: 35px;
+    height: 35px;
+
+    font-size: 16px;
+  }
+
+  .controls .play-button {
+    width: 48px;
+    height: 48px;
+
+    font-size: 18px;
+  }
+
+  .volume input {
+    width: 100px;
+  }
+
+  .queue-song {
+    grid-template-columns: 25px 45px 1fr;
   }
 
   .queue-song > span:last-child {
     display: none;
+  }
+
+  .queue-song h3 {
+    font-size: 14px;
+  }
+
+  .queue-song p {
+    font-size: 12px;
   }
 }
